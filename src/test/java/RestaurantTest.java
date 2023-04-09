@@ -69,8 +69,14 @@ class RestaurantTest {
 
         List<String> selectedItems = new ArrayList<>();
         selectedItems.add("Sweet corn soup");
-        int totalCost = restaurant.getTotalOrderValue(selectedItems) ;
+        selectedItems.add("Vegetable lasagne");
+        assertEquals( 388,restaurant.getTotalOrderValue(selectedItems) );
     }
 
 
+    @Test
+    void displayDetails() {
+        restaurant.displayDetails();
+        Mockito.verify(restaurant,Mockito.times(1)).getMenu();
+    }
 }
